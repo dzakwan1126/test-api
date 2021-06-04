@@ -22,7 +22,7 @@ class EmployeeController extends Controller
         $employee->divisi = $request->divisi;
         $employee->save();
 
-        return "data berhasil disimpan";
+        return response("data berhasil disimpan");
     }
 
     //untuk meng-update data
