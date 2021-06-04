@@ -22,7 +22,7 @@ class EmployeeController extends Controller
         $employee->divisi = $request->divisi;
         $employee->save();
 
-        return response("data berhasil disimpan");
+        return $employee;
     }
 
     //untuk meng-update data
@@ -36,9 +36,10 @@ class EmployeeController extends Controller
         $employee->id_karyawan = $id_karyawan;
         $employee->nama = $nama;
         $employee->divisi = $divisi;
-        $employee->save();
+        $employee->update();
 
-        return "data berhasil diubah";
+        return $employee;
+
     }
 
     //untuk menghapus data
@@ -47,6 +48,6 @@ class EmployeeController extends Controller
         $employee = Employee::find($id);
         $employee->delete();
 
-        return "data berhasil dihapus";
+        return $employee;
     }
 }
