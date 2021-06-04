@@ -25,10 +25,28 @@ class EmployeeController extends Controller
         return "data berhasil disimpan";
     }
 
+    //untuk meng-update data
     public function update(Request $request, $id)
     {
         $id_karyawan = $request->id_karyawan;
         $nama = $request->nama;
         $divisi = $request->divisi;
+
+        $employee = Employee::find($id);
+        $employee->id_karyawan = $id_karyawan;
+        $employee->nama = $nama;
+        $employee->divisi = $divisi;
+        $employee->save();
+
+        return "data berhasil diubah";
+    }
+
+    //untuk menghapus data
+    public function delete($id)
+    {
+        $employee = Employee::find($id);
+        $employee->delete();
+
+        return "data berhasil dihapus";
     }
 }

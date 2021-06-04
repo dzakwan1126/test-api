@@ -11,15 +11,6 @@ class Employee extends Model
 {
     use HasFactory;
 
-    public function up()
-    {
-        Schema::create('employees', function(Blueprint $table)
-        {
-            $table->id();
-            $table->string('id_karyawan');
-            $table->string('nama');
-            $table->string('divisi');
-        });
-    }
+    protected $fillable = ['id_karyawan', 'nama', 'divisi'];
 
 }

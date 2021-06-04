@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Employee;
+use App\Controllers\EmployeeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/employee', function(){
-    return Employee::all();
-});
+//Route untuk akses employee
+Route::get('/employee', [EmployeeController::class], 'index');
+Route::post('/employee', [EmployeeController::class], 'create');
+Route::put('/employee/{id}', [EmployeeController::class], 'update');
+Route::delete('/employee/{id}', [EmployeeController::class], 'delete');
+
