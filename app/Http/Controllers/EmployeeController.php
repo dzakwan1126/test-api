@@ -7,13 +7,13 @@ use App\Models\Employee;
 
 class EmployeeController extends Controller
 {
-    //untuk mengirim data dari model Employee
+    //untuk menampilkan data dari model Employee
     public function index()
     {
         return Employee::all();
     }
 
-    //untuk menyimpan data 
+    //untuk menambahkan Employee 
     public function create(Request $request)
     {
         $employee = new Employee;
